@@ -1,0 +1,100 @@
+//
+// Typography
+// --------------------------------------------------
+
+.font-base {
+	font-family: $font-family-base;
+}
+
+.font-serif {
+	font-family: $font-family-serif;
+}
+
+p {
+	line-height: 1.4;
+
+	@include font-size(1.4);
+
+	&.introduction {
+		margin-bottom: 20px;
+
+		@include font-size(1.8);
+	}
+}
+
+a {
+	text-decoration: underline;
+}
+
+h1 {
+	font-family: $font-family-serif;
+	line-height: 1.2;
+
+	@include font-size(3);
+
+	@media (min-width: $screen-sm) {
+		@include font-size(4);
+	}
+
+	@media (min-width: $screen-md) {
+		@include font-size(5);
+	}
+}
+
+h2 {
+	font-family: $font-family-serif;
+	line-height: 1.2;
+
+	@include font-size(2);
+
+	@media (min-width: $screen-sm) {
+		@include font-size(3);
+	}
+
+	@media (min-width: $screen-md) {
+		@include font-size(4);
+	}
+}
+
+h3 {
+	font-family: $font-family-serif;
+	line-height: 1.2;
+	
+	@include font-size(1.8);
+
+	@media (min-width: $screen-sm) {
+		@include font-size(2);
+	}
+
+	@media (min-width: $screen-md) {
+		@include font-size(3);
+	}
+}
+
+h4 {
+	font-family: $font-family-serif;
+	line-height: 1.2;
+	
+	@include font-size(1.5);
+
+	@media (min-width: $screen-sm) {
+		@include font-size(1.8);
+	}
+
+	@media (min-width: $screen-md) {
+		@include font-size(2);
+	}
+}
+
+ul,
+ol {
+	padding-left: 16px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+ol {
+	ol {
+		list-style-type: lower-roman;
+	}
+}

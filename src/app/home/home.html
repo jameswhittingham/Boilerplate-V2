@@ -1,0 +1,18 @@
+<!-- Bootstrap Jumbotron -->
+<div class="jumbotron">
+	<h1>James' Boilerplate V2</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eveniet, illo soluta, deserunt maiores ipsum. Quae nisi neque temporibus beatae nesciunt mollitia expedita assumenda. Nobis vitae rem, excepturi explicabo.</p>
+</div>
+
+<div class="row grid">
+	<div class="col-md-12">
+		<h3>Tools used in this boilerplate</h3>
+	</div>
+  <!-- Loops out Panels from the home/mock-tools.js file -->
+  <div class="col-md-4" *ngFor="let tool of tools">
+    <div class="panel panel-default">
+      <div class="panel-heading">{{ tool.name }}</div>
+      <div class="panel-body">{{ tool.description }}</div>
+    </div>
+  </div>
+</div>

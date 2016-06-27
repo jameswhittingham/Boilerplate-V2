@@ -1,0 +1,35 @@
+//
+// Structure
+// --------------------------------------------------
+
+html,
+body {
+  
+}
+
+header {
+	border-bottom: solid 1px #f1f1f1;
+	margin-bottom: 20px;
+	padding: 20px 0 0;
+}
+
+footer {
+	&.footer-main {
+		border-top: solid 1px #f1f1f1;
+		margin-top: 10px;
+		padding: 20px 0 60px;
+	}
+}
+
+.logo {
+	max-width: 100px;
+}
+
+.container .jumbotron {
+	border-radius: 0px;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+}

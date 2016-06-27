@@ -1,0 +1,538 @@
+<!-- Bootstrap Jumbotron -->
+<div class="jumbotron">
+	<h1>Style Guide {{ group }}</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eveniet, illo soluta, deserunt maiores ipsum. Quae nisi neque temporibus beatae nesciunt mollitia expedita assumenda. Nobis vitae rem, excepturi explicabo.</p>
+	<br/>
+
+	<div class="col-xs-12 text-center">
+		<ul class="list-inline">
+			<li><a (click)="group = 'all'">All</a></li>
+			<li><a (click)="group = 'colors'">Colors</a></li>
+			<li><a (click)="group = 'typography'">Typography</a></li>
+			<li><a (click)="group = 'headings'">Headings</a></li>
+			<li><a (click)="group = 'buttons'">Buttons</a></li>
+			<li><a (click)="group = 'form'">Form Elements</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<main class="style-guide">
+
+	<!-- Colors -->
+	<div [ngClass]="{ 'hidden': group != 'colors' && group != 'all'}">
+		<div class="style-heading">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Colors</h2>
+				</div>
+			</div>
+		</div>
+		<div class="style">
+			
+			<div class="vertical-center">
+
+				<div class="col-xs-12 col-md-6 style-sample">
+					<div class="row">
+						<div class="col-xs-2 style-color"><span class="bg-color-primary">#00A5BC</span></div>
+						<div class="col-xs-2 style-color"><span class="bg-color-primary-variant">#205B67</span></div>
+
+						<div class="col-xs-2 style-color"><span class="bg-color-secondary">#95BF15</span></div>
+						<div class="col-xs-2 style-color"><span class="bg-color-secondary-variant">#7AA006</span></div>
+
+						<div class="col-xs-2 style-color"><span class="bg-color-tertiary">#F8533B</span></div>
+						<div class="col-xs-2 style-color"><span class="bg-color-tertiary-variant">#A92310</span></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>$brand-primary: </var>#00A5BC;<br/>
+						<var>$brand-primary-variant: </var>#205B67;<br/>
+
+						<var>$brand-secondary: </var>#95BF15;<br/>
+						<var>$brand-secondary-variant: </var>#7AA006;<br/>
+
+						<var>$brand-tertiary: </var>#F8533B;<br/>
+						<var>$brand-tertiary-variant: </var>#A92310;
+					</samp>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- Typography -->
+	<div [ngClass]="{ 'hidden': group != 'typography' && group != 'all'}">
+		<div class="style-heading">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Typography</h2>
+				</div>
+			</div>
+		</div>
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<h1>Playfair</h1>
+					<p class="font-serif">
+						a b c d e f g h i j k l m n o p q r s t u v w x y z<br/>
+						A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>
+						1 2 3 4 5 6 7 8 9 0
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>$font-family-serif: </var>'Playfair Display', serif;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style single">
+			<div class="row">
+				<div class="col-xs-12">	
+					<div class="col-xs-12 col-md-4 style-sample">
+						<label class="style-label">Regular</label>
+						<p class="font-serif">The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eveniet deserunt dolores magni quae sint ipsa, impedit quisquam alias tenetur nihil voluptatibus excepturi minima exercitationem eius non quo numquam quis?</p>
+					</div>
+					<div class="col-xs-12 col-md-4 style-sample">
+						<label class="style-label">Bold</label>
+						<p class="font-serif"><strong>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eveniet deserunt dolores magni quae sint ipsa, impedit quisquam alias tenetur nihil voluptatibus excepturi minima exercitationem eius non quo numquam quis?</strong></p>
+					</div>
+					<div class="col-xs-12 col-md-4 style-sample">
+						<label class="style-label">Italic</label>
+						<p class="font-serif"><em>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eveniet deserunt dolores magni quae sint ipsa, impedit quisquam alias tenetur nihil voluptatibus excepturi minima exercitationem eius non quo numquam quis?</em></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<h1 class="font-base">Roboto</h1>
+					<p>
+						a b c d e f g h i j k l m n o p q r s t u v w x y z<br/>
+						A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>
+						1 2 3 4 5 6 7 8 9 0
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>$font-family-base: </var>'Roboto', sans-serif;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style single">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="col-xs-12 col-md-4 style-sample">
+						<label class="style-label">Regular</label>
+						<p>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eveniet deserunt dolores magni quae sint ipsa, impedit quisquam alias tenetur nihil voluptatibus excepturi minima exercitationem eius non quo numquam quis?</p>
+					</div>
+					<div class="col-xs-12 col-md-4 style-sample">
+						<label class="style-label">Bold</label>
+						<p><strong>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eveniet deserunt dolores magni quae sint ipsa, impedit quisquam alias tenetur nihil voluptatibus excepturi minima exercitationem eius non quo numquam quis?</strong></p>
+					</div>
+					<div class="col-xs-12 col-md-4 style-sample">
+						<label class="style-label">Italic</label>
+						<p><em>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex eveniet deserunt dolores magni quae sint ipsa, impedit quisquam alias tenetur nihil voluptatibus excepturi minima exercitationem eius non quo numquam quis?</em></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Paragraph</label>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi vero sapiente consectetur distinctio expedita commodi placeat pariatur, nisi. Obcaecati unde, excepturi id! Autem eum nobis animi voluptatibus facere pariatur atque.</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>font-size: </var>14px;<br/>
+						<var>line-height: </var>1.4;<br/>
+						<var>margin-bottom: </var>10px;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Introduction Paragraph</label>
+					<p class="introduction">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi vero sapiente consectetur distinctio expedita commodi placeat pariatur, nisi. Obcaecati unde, excepturi id! Autem eum nobis animi voluptatibus facere pariatur atque.</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>font-size: </var>18px;<br/>
+						<var>line-height: </var>1.4;<br/>
+						<var>margin-bottom: </var>20px;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Hypertext</label>
+					<p><a href="">Lorem ipsum dolor sit amet</a>, consectetur adipisicing elit. <a href="">Eligendi</a> vero sapiente consectetur distinctio expedita commodi placeat pariatur, nisi. Obcaecati unde, excepturi id! Autem eum nobis animi voluptatibus <a href="">facere</a> pariatur atque.</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>color: </var>#337ab7;<br/>
+						<var>text-decoration: </var>underline;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Superscript</label>
+					<p>Lorem ipsum dolor sit amet<sup>1,2,3</sup>, consectetur adipisicing elit<sup>1,2,3</sup>. Eligendi vero sapiente consectetur distinctio expedita commodi placeat pariatur, nisi. Obcaecati unde, excepturi id! Autem eum nobis animi voluptatibus facere<sup>1,2,3</sup> pariatur atque.</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>font-size: </var>75%;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Subscript</label>
+					<p>Lorem ipsum dolor sit amet<sub>1,2,3</sub>, consectetur adipisicing elit<sub>1,2,3</sub>. Eligendi vero sapiente consectetur distinctio expedita commodi placeat pariatur, nisi. Obcaecati unde, excepturi id! Autem eum nobis animi voluptatibus<sub>1,2,3</sub> facere pariatur atque.</p>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>font-size: </var>75%;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Small</label>
+					<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi vero sapiente consectetur distinctio expedita commodi placeat pariatur, nisi. Obcaecati unde, excepturi id! Autem eum nobis animi voluptatibus facere pariatur atque.</small>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>font-size: </var>85%;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Unordered list</label>
+					<ul>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li> 
+						<li>Eligendi vero sapiente consectetur distinctio.</li>
+						<li>Expedita commodi placeat pariatur.
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li> 
+								<li>Eligendi vero sapiente consectetur distinctio.</li>
+								<li>Expedita commodi placeat pariatur.</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>margin-bottom:</var> 20px;<br/>
+						<var>margin-top:</var> 0;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Ordered list</label>
+					<ol>
+						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li> 
+						<li>Eligendi vero sapiente consectetur distinctio.</li>
+						<li>Expedita commodi placeat pariatur.
+							<ol>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li> 
+								<li>Eligendi vero sapiente consectetur distinctio.</li>
+								<li>Expedita commodi placeat pariatur.</li>
+							</ol>
+						</li>
+					</ol>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>margin-bottom:</var> 20px;<br/>
+						<var>margin-top:</var> 0;
+					</samp>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Headings -->
+	<div [ngClass]="{ 'hidden': group != 'headings' && group != 'all'}">
+		<div class="style-heading">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Headings</h2>
+				</div>
+			</div>
+		</div>
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">h1</label>
+					<h1>The quick brown fox jumps over the lazy dog</h1>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp class="visible-xs">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 30px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-sm">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 40px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-md visible-lg">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 50px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">h2</label>
+					<h2>The quick brown fox jumps over the lazy dog</h2>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp class="visible-xs">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 20px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-sm">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 30px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-md visible-lg">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 40px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">h3</label>
+					<h3>The quick brown fox jumps over the lazy dog</h3>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp class="visible-xs">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 18px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-sm">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 20px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-md visible-lg">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 30px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">h4</label>
+					<h4>The quick brown fox jumps over the lazy dog</h4>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp class="visible-xs">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 16px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-sm">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 18px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+					<samp class="visible-md visible-lg">
+						<var>font-family:</var> 'Playfair Display', serif;<br/>
+						<var>font-size:</var> 20px;<br/>
+						<var>line-height:</var> 1.2;<br/>
+					</samp>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Buttons -->
+	<div [ngClass]="{ 'hidden': group != 'buttons' && group != 'all'}">
+		<div class="style-heading">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Buttons</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Button style 1</label>
+					<button class="btn btn-default">Submit</button>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>color:</var> #333;<br/>
+						<var>background-color:</var> #fff;<br/>
+						<var>border:</var> solid 1px #ccc;<br/>
+						<var>border-radius:</var> 4px;<br/>
+						<var>padding:</var> 6px 12px;
+					</samp>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Button style 2</label>
+					<button class="btn btn-primary">Submit</button>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>color:</var> #fff;<br/>
+						<var>background-color:</var> #337ab7;<br/>
+						<var>border:</var> solid 1px #2e6da4;<br/>
+						<var>border-radius:</var> 4px;<br/>
+						<var>padding:</var> 6px 12px;
+					</samp>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Form Elements -->
+	<div [ngClass]="{ 'hidden': group != 'form' && group != 'all'}">
+		<div class="style-heading">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Form Elements</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Checkbox list</label>
+					<ul class="list-checkboxes">
+						<li class="checkbox"><label for="chk1">Checkbox 1</label> <input id="chk1" name="chk1" type="checkbox"><span></span></li>
+						<li class="checkbox"><label for="chk2">Checkbox 2</label> <input id="chk2" name="chk2" type="checkbox"><span></span></li>
+						<li class="checkbox"><label for="chk3">Checkbox 3</label> <input id="chk3" name="chk3" type="checkbox"><span></span></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Radio list</label>
+					<ul class="list-radios">
+						<li class="radio"><label for="radio01">Radio Button 1</label><input id="radio01" name="radio" type="radio"><span></span></li>
+						<li class="radio"><label for="radio02">Radio Button 2</label><input id="radio02" name="radio" type="radio"><span></span></li>
+						<li class="radio"><label for="radio03">Radio Button 3</label><input id="radio03" name="radio" type="radio"><span></span></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Textbox</label>
+					<input type="text" placeholder="Textbox"/>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Password</label>
+					<input type="password" placeholder="Password"/>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Dropdown list</label>
+					<select>
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+					</select>
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+</main>

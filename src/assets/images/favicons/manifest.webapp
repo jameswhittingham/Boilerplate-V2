@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "name": "Boilerplate V2",
+  "description": null,
+  "icons": {
+    "60": "src/assets/images/favicons/firefox_app_60x60.png",
+    "128": "src/assets/images/favicons/firefox_app_128x128.png",
+    "512": "src/assets/images/favicons/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": null,
+    "url": null
+  }
+}
