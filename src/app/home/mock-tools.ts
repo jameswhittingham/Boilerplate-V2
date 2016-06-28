@@ -15,7 +15,7 @@ export var Tools: Tool[] = [
   }, {
 		id: 4,
 		name: 'SASS',
-		description: 'is the most mature, stable, and powerful professional grade CSS extension language in the world.'
+		description: 'Syntactically Awesome Style Sheets are the most mature, stable, and powerful professional grade CSS extension language in the world.'
   }, {
 		id: 5,
 		name: 'TypeScript',
@@ -23,15 +23,15 @@ export var Tools: Tool[] = [
   }, {
 		id: 6,
 		name: 'Javascript (ES6)',
-		description: 'is the programming language of HTML and the Web.'
+		description: 'Javascript is the programming language of HTML and the Web.'
   }, {
 		id: 7,
 		name: 'CSS', 
-		description: 'is a stylesheet language that describes the presentation of an HTML (or XML) document' 
+		description: 'Cascading Style Sheets are a stylesheet language that describes the presentation of an HTML (or XML) document' 
   }, {
 		id: 8,
 		name: 'HTML5',
-		description: 'is a markup language for describing web documents (web pages).'
+		description: 'Hyper Text Markup Language is a markup language for describing web documents (web pages).'
   }, {
 		id: 9,
 		name: 'jQuery 2.2.4',

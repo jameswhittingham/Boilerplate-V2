@@ -1,15 +1,16 @@
 <!-- Bootstrap Jumbotron -->
 <div class="jumbotron">
-	<h1>Style Guide {{ group }}</h1>
+	<h1>Style Guide - {{ group }}</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eveniet, illo soluta, deserunt maiores ipsum. Quae nisi neque temporibus beatae nesciunt mollitia expedita assumenda. Nobis vitae rem, excepturi explicabo.</p>
 	<br/>
 
-	<div class="col-xs-12 text-center">
+	<div class="col-md-12 text-center">
 		<ul class="list-inline">
 			<li><a (click)="group = 'all'">All</a></li>
 			<li><a (click)="group = 'colors'">Colors</a></li>
 			<li><a (click)="group = 'typography'">Typography</a></li>
 			<li><a (click)="group = 'headings'">Headings</a></li>
+			<li><a (click)="group = 'icons'">Icons</a></li>
 			<li><a (click)="group = 'buttons'">Buttons</a></li>
 			<li><a (click)="group = 'form'">Form Elements</a></li>
 		</ul>
@@ -184,7 +185,7 @@
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
 					<samp>
-						<var>color: </var>#337ab7;<br/>
+						<var>color: </var>#00A5BC; (primary color)<br/>
 						<var>text-decoration: </var>underline;
 					</samp>
 				</div>
@@ -398,6 +399,44 @@
 		</div>
 	</div>
 
+
+	<!-- Icons -->
+	<div [ngClass]="{ 'hidden': group != 'icons' && group != 'all'}">
+		<div class="style-heading">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Icons</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					
+					<span class="icon icon-cross"></span>
+					<span class="icon icon-magnify"></span>
+					<span class="icon icon-twitter"></span>
+					<span class="icon icon-facebook"></span>
+					<span class="icon icon-linkedin"></span>
+					<span class="icon icon-angle-left"></span>
+					<span class="icon icon-angle-right"></span>
+					<span class="icon icon-angle-up"></span>
+					<span class="icon icon-angle-down"></span>
+
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- SVG<br/>
+					</samp>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 	<!-- Buttons -->
 	<div [ngClass]="{ 'hidden': group != 'buttons' && group != 'all'}">
 		<div class="style-heading">
@@ -422,6 +461,16 @@
 						<var>border-radius:</var> 4px;<br/>
 						<var>padding:</var> 6px 12px;
 					</samp>
+
+					<br/><br/>
+
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Minimum width or dynamic?<br/>
+						- Hover style<br/>
+						- Focus style<br/>
+						- Click style
+					</samp>
 				</div>
 			</div>
 		</div>
@@ -439,6 +488,16 @@
 						<var>border:</var> solid 1px #2e6da4;<br/>
 						<var>border-radius:</var> 4px;<br/>
 						<var>padding:</var> 6px 12px;
+					</samp>
+
+					<br/><br/>
+
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Minimum width or dynamic?<br/>
+						- Hover style<br/>
+						- Focus style<br/>
+						- Click style
 					</samp>
 				</div>
 			</div>
@@ -462,11 +521,18 @@
 					<ul class="list-checkboxes">
 						<li class="checkbox"><label for="chk1">Checkbox 1</label> <input id="chk1" name="chk1" type="checkbox"><span></span></li>
 						<li class="checkbox"><label for="chk2">Checkbox 2</label> <input id="chk2" name="chk2" type="checkbox"><span></span></li>
-						<li class="checkbox"><label for="chk3">Checkbox 3</label> <input id="chk3" name="chk3" type="checkbox"><span></span></li>
+						<li class="checkbox"><label for="chk3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt consequatur ipsa ab, tempora minima enim vel debitis quas, officiis nesciunt rem adipisci eligendi non, eos neque similique reprehenderit ex atque.</label> <input id="chk3" name="chk3" type="checkbox" class="error"><span></span></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
-
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Label length and wrapping<br/>
+						- Tick color ('Checked' state) - svg<br/>
+						- Margin before and after list<br/>
+						- Error states, messages and positioning<br/>
+						- Focus style
+					</samp>
 				</div>
 			</div>
 		</div>
@@ -478,11 +544,18 @@
 					<ul class="list-radios">
 						<li class="radio"><label for="radio01">Radio Button 1</label><input id="radio01" name="radio" type="radio"><span></span></li>
 						<li class="radio"><label for="radio02">Radio Button 2</label><input id="radio02" name="radio" type="radio"><span></span></li>
-						<li class="radio"><label for="radio03">Radio Button 3</label><input id="radio03" name="radio" type="radio"><span></span></li>
+						<li class="radio"><label for="radio03">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt consequatur ipsa ab, tempora minima enim vel debitis quas, officiis nesciunt rem adipisci eligendi non, eos neque similique reprehenderit ex atque.</label><input id="radio03" name="radio" type="radio" class="error"><span></span></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
-
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Label length and wrapping<br/>
+						- Selected color<br/>
+						- Margin before and after list<br/>
+						- Error states, messages and positioning
+						- Focus style
+					</samp>
 				</div>
 			</div>
 		</div>
@@ -490,39 +563,155 @@
 		<div class="style">
 			<div class="vertical-center">
 				<div class="col-xs-12 col-md-6 style-sample">
-					<label class="style-label">Textbox</label>
-					<input type="text" placeholder="Textbox"/>
+					<label class="style-label">Text Inputs</label>
+					
+					<form>
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="txt">Label for textbox</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="txt" type="text" placeholder="Textbox"/>		
+							</div>
+						</div>
+
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="txterror">Label for textbox with error*</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="txterror" type="text" placeholder="Textbox with error" class="error"/>
+								<span class="error-message">This is an error message</span>
+							</div>
+						</div>
+
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="pwd">Label for password</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="pwd" type="password" placeholder="Password"/>		
+							</div>
+						</div>
+
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="email">Label for email</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="email" type="email" placeholder="Email Address"/>		
+							</div>
+						</div>
+
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="date">Label for date</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="date" type="date" placeholder="Date"/>		
+							</div>
+						</div>
+					</form>
+
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
-
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Textbox length (minimum width or %)<br/>
+						- Label length and wrapping<br/>
+						- Placeholder style<br/>
+						- Margins and padding<br/>
+						- Error states, messages and positioning,<br/>
+						- Multi-line errors<br/>
+						- Date format<br/>
+						- Native date picker or custom?<br/>
+						- Focus style?
+					</samp>
 				</div>
 			</div>
 		</div>
 
-		<div class="style">
-			<div class="vertical-center">
-				<div class="col-xs-12 col-md-6 style-sample">
-					<label class="style-label">Password</label>
-					<input type="password" placeholder="Password"/>
-				</div>
-				<div class="col-xs-12 col-md-6 style-vars">
-
-				</div>
-			</div>
-		</div>
 
 		<div class="style">
 			<div class="vertical-center">
 				<div class="col-xs-12 col-md-6 style-sample">
 					<label class="style-label">Dropdown list</label>
-					<select>
-						<option>Option 1</option>
-						<option>Option 2</option>
-						<option>Option 3</option>
-					</select>
+
+					<div class="row vertical-center">
+						<div class="col-sm-4 col-md-3 vertical-center">
+							<label for="ddl">Label for dropdown</label>
+						</div>
+						<div class="col-sm-8 col-md-9">
+							<select id="ddl">
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row vertical-center">
+						<div class="col-sm-4 col-md-3 vertical-center">
+							<label for="ddl">Label for dropdown with error</label>
+						</div>
+						<div class="col-sm-8 col-md-9">
+							<select id="ddl" class="error">
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+							</select>
+							<span class="error-message">This is an error message</span>
+						</div>
+					</div>
+
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Dropdown length (minimum width or %)<br/>
+						- Label length and wrapping<br/>
+						- Default option ( -please select- )?<br/>
+						- Native dropdown or custom?<br/>
+						- Margins and padding<br/>
+						- Error states, messages and positioning,
+						- Dropdown arrow - svg
+					</samp>
+				</div>
+			</div>
+		</div>
 
+		<div class="style">
+			<div class="vertical-center">
+				<div class="col-xs-12 col-md-6 style-sample">
+					<label class="style-label">Tooltip</label>
+
+					<form>
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="txt2" data-toggle="tooltip" data-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit." class="tooltip-label">Label with tooltip</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="txt2" type="text" placeholder="Textbox"/>	
+							</div>
+						</div>
+						<div class="row vertical-center">
+							<div class="col-sm-4 col-md-3 vertical-center">
+								<label for="txt3" data-toggle="tooltip" data-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit." class="tooltip-label">Tooltip</label>
+							</div>
+							<div class="col-sm-8 col-md-9">
+								<input id="txt3" type="text" placeholder="Textbox"/>	
+							</div>
+						</div>
+					</form>
+
+				</div>
+				<div class="col-xs-12 col-md-6 style-vars">
+					<samp>
+						<var>Considerations and Requirements:</var><br/>
+						- Icon size and positioning<br/>
+						- Float next to text or positioned relative to container?<br/>
+						- Mobile functionality?
+					</samp>
 				</div>
 			</div>
 		</div>

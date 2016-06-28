@@ -2,6 +2,56 @@
 // Form
 // --------------------------------------------------
 
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select {
+	border: solid 1px #ccc;
+	border-radius: 0;
+	margin-bottom: 15px;
+	padding: 15px;
+	width: 100%;
+
+	-webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+
+  &.error {
+  	border: solid 1px red;
+  	margin-bottom: 5;
+
+  	&~.error-message {
+			display: block;
+  	}
+  }
+}
+
+select {
+	background-image: url(../assets/images/ddl-arrow.svg);
+	background-position: top 18px right 10px;
+	background-repeat: no-repeat;
+	background-size: 10px 10px;
+	padding-right: 40px;
+}
+
+label {
+	font-weight: normal;
+	
+	@media(min-width: $screen-sm) {
+		margin-bottom: 15px;
+	}
+}
+
+.error-message {
+	color: red;
+	display: none;
+	float: right;
+	margin-bottom: 10px;
+
+	@include font-size(1.2);
+}
+
 .checkbox,
 .radio {
 	margin: 0;
@@ -18,6 +68,20 @@
 
 	input {
 		left: -20px;
+
+		&:focus {
+			color: red;
+
+			& + span {
+				border-color: #7fbbf9;
+			}
+		}
+
+		&.error {
+			& + span {
+				border-color: red;
+			}
+		}
 	}
 
 	span {
@@ -27,7 +91,7 @@
 		left: 0;
 		overflow: hidden;
 		position: absolute;
-		top: 2px;
+		top: 0;
 		width: 18px;
 
 		&:before {

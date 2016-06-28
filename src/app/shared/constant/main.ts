@@ -1,5 +1,5 @@
 export const MAIN = {
-    APP: {
-        BRAND: 'Boilerplate v2'
-    }
+	APP: {
+		BRAND: 'Boilerplate v2'
+	}
 };

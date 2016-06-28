@@ -29,7 +29,9 @@ $dark-grey: #2d3335;
 		}
 
 		&:not(.inline) {
+			display: inline-block;
 			margin-bottom: 10px;
+			width: 100%;
 
 			.style-sample,
 			.style-vars {
@@ -81,6 +83,12 @@ $dark-grey: #2d3335;
 		}
 
 		.style-color {
+			padding: 0 2px;
+
+			@media(min-width: $screen-md) {
+				padding: 0 10px;
+			}
+
 			span {
 				align-items: flex-end;
 				color: $light-grey;
@@ -99,6 +107,9 @@ $dark-grey: #2d3335;
 
 
 
+.icon {
+	@include font-size(2.5);
+}
 
 
 
