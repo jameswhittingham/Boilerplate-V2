@@ -41,7 +41,7 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/close";
 
 // Components w/ JavaScript
-//@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
 //@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
 //@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
@@ -75,5 +75,6 @@
 @import "modules/footer";
 @import "modules/responsive-embed";
 @import "modules/tooltip";
+@import "modules/modals";
 
 @import "modules/style-guide";
