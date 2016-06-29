@@ -39,6 +39,7 @@
     "html5shiv": "^3.7.3",
     "jquery": "^2.2.4",
     "jquery-migrate": "^3.0.0",
+    "ng2-bootstrap": "^1.0.17",
     "selectivizr2": "^1.0.7"
   }
 }
