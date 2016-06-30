@@ -4803,7 +4803,9 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="date"],
+input[type="number"],
 select {
+  background-color: transparent;
   border: solid 1px #ccc;
   border-radius: 0;
   margin-bottom: 15px;
@@ -4816,6 +4818,7 @@ select {
   input[type="password"].error,
   input[type="email"].error,
   input[type="date"].error,
+  input[type="number"].error,
   select.error {
     border: solid 1px red;
     margin-bottom: 5; }
@@ -4823,6 +4826,7 @@ select {
     input[type="password"].error ~ .error-message,
     input[type="email"].error ~ .error-message,
     input[type="date"].error ~ .error-message,
+    input[type="number"].error ~ .error-message,
     select.error ~ .error-message {
       display: block; }
 
@@ -5114,7 +5118,7 @@ ul.list-inline {
 
 ul.list-checkboxes, ul.list-radios {
   list-style: none;
-  margin: 0;
+  margin: 15px 0;
   padding: 0; }
   ul.list-checkboxes li, ul.list-radios li {
     display: inline-block;

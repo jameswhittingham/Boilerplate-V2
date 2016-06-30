@@ -1,0 +1,86 @@
+<!-- Bootstrap Jumbotron -->
+<div class="jumbotron">
+	<h1>Form Example</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eveniet, illo soluta, deserunt maiores ipsum. Quae nisi neque temporibus beatae nesciunt mollitia expedita assumenda. Nobis vitae rem, excepturi explicabo.</p>
+	<br/>
+</div>
+
+
+<main class="form-example">
+	<form novalidate>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="firstName">First Name*</label>
+				<input type="text" id="firstName" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && firstName.touched" />
+				<span class="error-message">This is a required field</span>
+			</div>
+			<div class="col-md-6">
+				<label for="lastName">Last Name*</label>
+				<input type="text" id="lastName" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && lastName.touched"/>
+				<span class="error-message">This is a required field</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label for="email">E-mail*</label>
+				<!--<input type="email" id="email" name="email" required [(ngModel)]="user.email" #email="ngModel" [class.error]="!email.valid && email.touched && email != confirmEmil" />-->
+				<input type="email" name="email" [(ngModel)]="user.email" my-email-validator ngControl="email" #email="ngForm" [class.error]="email.touched && !email.valid"/>
+				<span class="error-message">This is a required field</span>
+			</div>
+			<div class="col-md-6">
+				<label for="confirmEmail">Confirm E-mail*</label>
+				<!--<input type="email" id="confirmEmail" name="confirmEmail" required [(ngModel)]="user.confirmEmail" #confirmEmail="ngModel" [class.error]="!confirmEmail.valid && confirmEmail.touched && confirmEmil != email" />-->
+				<input type="email" name="confirmEmail" [(ngModel)]="user.confirmEmail" my-email-validator ngControl="confirmEmail" #confirmEmail="ngForm" [class.error]="confirmEmail.touched && !confirmEmail.valid"/>
+				<span class="error-message">This is a required field</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label for="address1">Address 1*</label>
+				<input type="text" id="address1" name="address1" required [(ngModel)]="user.address1"/>
+				<span class="error-message">This is a required field</span>
+			</div>
+			<div class="col-md-6">
+				<label for="address2">Address 2</label>
+				<input type="text" id="address2" name="address2" [(ngModel)]="user.address2"/>
+				<span class="error-message">This is a required field</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label for="postcode">Postcode*</label>
+				<input type="number" id="postcode" name="postcode" required [(ngModel)]="user.postcode"/>
+				<span class="error-message">This is a required field</span>
+			</div>
+			<div class="col-md-6">
+				<label for="state">State*</label>
+				<select name="state" id="state" name="state" required [(ngModel)]="user.state">
+					<option value="">State</option>
+					<option *ngFor="let state of states" [value]="state">{{state}}</option>
+				</select>
+				<span class="error-message">This is a required field</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="list-checkboxes">
+					<li class="checkbox"><label for="chk1">Opt in to recieve Newsletter 1</label> <input id="chk1" name="chk1" type="checkbox"><span></span></li>
+					<li class="checkbox"><label for="chk2">Opt in to recieve Newsletter 2</label> <input id="chk2" name="chk2" type="checkbox"><span></span></li>
+					<li class="checkbox"><label for="chk3">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> <input id="chk3" name="chk3" type="checkbox" [(ngModel)]="user.agreed" required><span></span></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6">
+				<input type="submit" class="btn btn-primary pull-right"/>
+			</div>
+		</div>
+
+	</form>
+
+</main>

@@ -6,7 +6,9 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="date"],
+input[type="number"],
 select {
+	background-color: transparent;
 	border: solid 1px #ccc;
 	border-radius: 0;
 	margin-bottom: 15px;
