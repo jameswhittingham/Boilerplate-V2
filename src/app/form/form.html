@@ -7,17 +7,17 @@
 
 
 <main class="form-example">
-	<form novalidate>
+	<form novalidate (ngSubmit)="onSubmit()" #thisForm="ngForm">
 		<div class="row">
 			<div class="col-md-6">
 				
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="firstName" [class.error]="!firstName.valid && firstName.touched">First Name*</label>
+						<label for="firstName" [class.error]="!firstName.valid && (firstName.touched  || submitted)">First Name*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="firstName" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && firstName.touched" />
+						<input type="text" id="firstName" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && (firstName.touched || submitted)" />
 					</div>
 				</div>
 
@@ -26,11 +26,11 @@
 
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="lastName" [class.error]="!lastName.valid && lastName.touched">Last Name*</label>
+						<label for="lastName" [class.error]="!lastName.valid && (lastName.touched || submitted)">Last Name*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="lastName" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && lastName.touched"/>
+						<input type="text" id="lastName" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && (lastName.touched || submitted)"/>
 					</div>
 				</div>
 				
@@ -42,11 +42,11 @@
 
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="email" [class.error]="email.touched && !email.valid">E-mail*</label>
+						<label for="email" [class.error]="!email.valid && (email.touched || submitted)">E-mail*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="email" name="email" [(ngModel)]="user.email" my-email-validator ngControl="email" #email="ngForm" [class.error]="email.touched && !email.valid"/>
+						<input type="email" name="email" [(ngModel)]="user.email" email-validator ngControl="email" #email="ngForm" [class.error]="!email.valid && (email.touched || submitted)"/>
 					</div>
 				</div>
 
@@ -55,11 +55,11 @@
 
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="confirmEmail" [class.error]="confirmEmail.touched && !confirmEmail.valid">Confirm E-mail*</label>
+						<label for="confirmEmail" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)">Confirm E-mail*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="email" name="confirmEmail" [(ngModel)]="user.confirmEmail" my-email-validator ngControl="confirmEmail" #confirmEmail="ngForm" [class.error]="confirmEmail.touched && !confirmEmail.valid"/>
+						<input type="email" name="confirmEmail" [(ngModel)]="user.confirmEmail" email-validator match-validator item="{{user.email}}" ngControl="confirmEmail" #confirmEmail="ngForm" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)"/>
 					</div>
 				</div>
 
@@ -71,11 +71,11 @@
 
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="address1" [class.error]="!address1.valid && address1.touched">Address 1*</label>
+						<label for="address1" [class.error]="!address1.valid && (address1.touched || submitted)">Address 1*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="address1" name="address1" required [(ngModel)]="user.address1" #address1="ngModel" [class.error]="!address1.valid && address1.touched"/>
+						<input type="text" id="address1" name="address1" required [(ngModel)]="user.address1" #address1="ngModel" [class.error]="!address1.valid && (address1.touched || submitted)"/>
 					</div>
 				</div>
 				
@@ -100,11 +100,11 @@
 
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="postcode" [class.error]="!postcode.valid && postcode.touched">Postcode*</label>
+						<label for="postcode" [class.error]="!postcode.valid && (postcode.touched || submitted)">Postcode*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="number" id="postcode" name="postcode" required [(ngModel)]="user.postcode" #postcode="ngModel" [class.error]="!postcode.valid && postcode.touched"/>
+						<input type="number" id="postcode" name="postcode" required [(ngModel)]="user.postcode" #postcode="ngModel" [class.error]="!postcode.valid && (postcode.touched || submitted)"/>
 					</div>
 				</div>
 
@@ -113,11 +113,11 @@
 
 				<div class="row vertical-center">
 					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="state" [class.error]="!state.valid && state.touched">State*</label>
+						<label for="state" [class.error]="!state.valid && (state.touched || submitted)">State*</label>
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<select name="state" id="state" name="state" required [(ngModel)]="user.state" #state="ngModel" [class.error]="!state.valid && state.touched">
+						<select name="state" id="state" name="state" required [(ngModel)]="user.state" #state="ngModel" [class.error]="!state.valid && (state.touched || submitted)">
 							<option value="">State</option>
 							<option *ngFor="let state of states" [value]="state">{{state}}</option>
 						</select>
@@ -137,9 +137,9 @@
 						<span></span>
 					</li>
 					<li class="checkbox">
-						<label for="chk" [class.error]="chk.touched && !chk.valid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum delectus, mollitia beatae ullam officia nesciunt eum.</label>
+						<label for="chk" [class.error]="!chk.valid && (chk.touched || submitted)">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum delectus, mollitia beatae ullam officia nesciunt eum.</label>
 						<div class="error-message">This is a required field</div>
-						<input id="chk" name="chk" type="checkbox" [(ngModel)]="user.chk" required my-checkbox-validator ngControl="chk" #chk="ngForm" [class.error]="chk.touched && !chk.valid">
+						<input id="chk" name="chk" type="checkbox" [(ngModel)]="user.chk" required checkbox-validator ngControl="chk" #chk="ngForm" [class.error]="!chk.valid && (chk.touched || submitted)">
 						<span></span>
 					</li>
 					<li class="checkbox">
@@ -147,9 +147,9 @@
 						<input id="chk2" name="chk2" type="checkbox"><span></span>
 					</li>
 					<li class="checkbox">
-						<label for="chk3" [class.error]="chk3.touched && !chk3.valid">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> 
+						<label for="chk3" [class.error]="!chk3.valid && (chk3.touched || submitted)">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> 
 						<div class="error-message">This is a required field</div>
-						<input id="chk3" name="chk3" type="checkbox" [(ngModel)]="user.agreed" required my-checkbox-validator ngControl="chk3" #chk3="ngForm" [class.error]="chk3.touched && !chk3.valid">
+						<input id="chk3" name="chk3" type="checkbox" [(ngModel)]="user.agreed" required checkbox-validator ngControl="chk3" #chk3="ngForm" [class.error]="!chk3.valid && (chk3.touched || submitted)">
 						<span></span>
 					</li>
 				</ul>
@@ -158,7 +158,7 @@
 
 		<div class="row">
 			<div class="col-md-6 col-md-offset-6">
-				<input type="submit" class="btn btn-primary pull-right"/>
+				<input type="submit" class="btn btn-primary pull-right" [disabled]="!thisForm.form.valid"/>
 			</div>
 		</div>
 

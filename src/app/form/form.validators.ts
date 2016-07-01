@@ -1,11 +1,11 @@
-import {Directive, Provider, forwardRef} from '@angular/core';
+import {Directive, Provider, forwardRef, Input} from '@angular/core';
 import {NG_VALIDATORS, Validator, Control} from '@angular/common';
 
-const MY_EMAIL_VALIDATOR = new Provider(NG_VALIDATORS, {useExisting: forwardRef(() => EmailValidator), multi: true});
+const EMAIL_VALIDATOR = new Provider(NG_VALIDATORS, {useExisting: forwardRef(() => EmailValidator), multi: true});
 
 @Directive({
-	selector: '[my-email-validator]',
-	providers: [MY_EMAIL_VALIDATOR]
+	selector: '[email-validator]',
+	providers: [EMAIL_VALIDATOR]
 })
 export class EmailValidator implements Validator {
 	constructor(){}
@@ -15,15 +15,31 @@ export class EmailValidator implements Validator {
 	}
 }
 
-const MY_CHECKBOX_VALIDATOR = new Provider(NG_VALIDATORS, {useExisting: forwardRef(() => CheckboxValidator), multi: true});
+const CHECKBOX_VALIDATOR = new Provider(NG_VALIDATORS, {useExisting: forwardRef(() => CheckboxValidator), multi: true});
 
 @Directive({
-	selector: '[my-checkbox-validator]',
-	providers: [MY_CHECKBOX_VALIDATOR]
+	selector: '[checkbox-validator]',
+	providers: [CHECKBOX_VALIDATOR]
 })
 export class CheckboxValidator implements Validator {
 	constructor(){}
 	validate(c: Control): {[key: string]: any} {
 		return c.value ? null : {'checkboxValidation':'checkbox is invalid.'};
+	}
+}
+
+const MATCH_VALIDATOR = new Provider(NG_VALIDATORS, {useExisting: forwardRef(() => MatchValidator), multi: true});
+
+@Directive({
+	selector: '[match-validator]',
+	providers: [MATCH_VALIDATOR]
+})
+export class MatchValidator implements Validator {
+	@Input() item;
+
+	constructor(){}
+	validate(c: Control): {[key: string]: any} {
+		var match = this.item == c.value;
+		return match ? null : {'matchValidation':'match is invalid.'};
 	}
 }

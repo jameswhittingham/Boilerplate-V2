@@ -2,7 +2,7 @@ import {Component, Input, ChangeDetectionStrategy, Directive} from '@angular/cor
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from '@angular/common';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
-import {EmailValidator, CheckboxValidator} from './form.validators';
+import {EmailValidator, CheckboxValidator, MatchValidator} from './form.validators';
 
 import {User} from './user';
 
@@ -10,7 +10,7 @@ import {User} from './user';
   selector: 'as-form',
   templateUrl: 'app/form/form.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES, EmailValidator, CheckboxValidator]
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES, EmailValidator, CheckboxValidator, MatchValidator]
 })
 export class FormComponent {
 	states = ['ACT','NSW','NT','QLD','SA','VIC','WA'];
@@ -19,5 +19,7 @@ export class FormComponent {
 
 	submitted = false;
 
-	onSubmit() { this.submitted = true; }
+	onSubmit() { 
+		this.submitted = true; 
+	}
 }
