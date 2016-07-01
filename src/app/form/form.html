@@ -10,67 +10,148 @@
 	<form novalidate>
 		<div class="row">
 			<div class="col-md-6">
-				<label for="firstName">First Name*</label>
-				<input type="text" id="firstName" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && firstName.touched" />
-				<span class="error-message">This is a required field</span>
+				
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="firstName" [class.error]="!firstName.valid && firstName.touched">First Name*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="firstName" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && firstName.touched" />
+					</div>
+				</div>
+
 			</div>
 			<div class="col-md-6">
-				<label for="lastName">Last Name*</label>
-				<input type="text" id="lastName" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && lastName.touched"/>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="lastName" [class.error]="!lastName.valid && lastName.touched">Last Name*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="lastName" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && lastName.touched"/>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-6">
-				<label for="email">E-mail*</label>
-				<!--<input type="email" id="email" name="email" required [(ngModel)]="user.email" #email="ngModel" [class.error]="!email.valid && email.touched && email != confirmEmil" />-->
-				<input type="email" name="email" [(ngModel)]="user.email" my-email-validator ngControl="email" #email="ngForm" [class.error]="email.touched && !email.valid"/>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="email" [class.error]="email.touched && !email.valid">E-mail*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="email" name="email" [(ngModel)]="user.email" my-email-validator ngControl="email" #email="ngForm" [class.error]="email.touched && !email.valid"/>
+					</div>
+				</div>
+
 			</div>
 			<div class="col-md-6">
-				<label for="confirmEmail">Confirm E-mail*</label>
-				<!--<input type="email" id="confirmEmail" name="confirmEmail" required [(ngModel)]="user.confirmEmail" #confirmEmail="ngModel" [class.error]="!confirmEmail.valid && confirmEmail.touched && confirmEmil != email" />-->
-				<input type="email" name="confirmEmail" [(ngModel)]="user.confirmEmail" my-email-validator ngControl="confirmEmail" #confirmEmail="ngForm" [class.error]="confirmEmail.touched && !confirmEmail.valid"/>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="confirmEmail" [class.error]="confirmEmail.touched && !confirmEmail.valid">Confirm E-mail*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="email" name="confirmEmail" [(ngModel)]="user.confirmEmail" my-email-validator ngControl="confirmEmail" #confirmEmail="ngForm" [class.error]="confirmEmail.touched && !confirmEmail.valid"/>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-6">
-				<label for="address1">Address 1*</label>
-				<input type="text" id="address1" name="address1" required [(ngModel)]="user.address1"/>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="address1" [class.error]="!address1.valid && address1.touched">Address 1*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="address1" name="address1" required [(ngModel)]="user.address1" #address1="ngModel" [class.error]="!address1.valid && address1.touched"/>
+					</div>
+				</div>
+				
 			</div>
 			<div class="col-md-6">
-				<label for="address2">Address 2</label>
-				<input type="text" id="address2" name="address2" [(ngModel)]="user.address2"/>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="address2">Address 2</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="address2" name="address2" [(ngModel)]="user.address2"/>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-6">
-				<label for="postcode">Postcode*</label>
-				<input type="number" id="postcode" name="postcode" required [(ngModel)]="user.postcode"/>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="postcode" [class.error]="!postcode.valid && postcode.touched">Postcode*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="number" id="postcode" name="postcode" required [(ngModel)]="user.postcode" #postcode="ngModel" [class.error]="!postcode.valid && postcode.touched"/>
+					</div>
+				</div>
+
 			</div>
 			<div class="col-md-6">
-				<label for="state">State*</label>
-				<select name="state" id="state" name="state" required [(ngModel)]="user.state">
-					<option value="">State</option>
-					<option *ngFor="let state of states" [value]="state">{{state}}</option>
-				</select>
-				<span class="error-message">This is a required field</span>
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="state" [class.error]="!state.valid && state.touched">State*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<select name="state" id="state" name="state" required [(ngModel)]="user.state" #state="ngModel" [class.error]="!state.valid && state.touched">
+							<option value="">State</option>
+							<option *ngFor="let state of states" [value]="state">{{state}}</option>
+						</select>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<ul class="list-checkboxes">
-					<li class="checkbox"><label for="chk1">Opt in to recieve Newsletter 1</label> <input id="chk1" name="chk1" type="checkbox"><span></span></li>
-					<li class="checkbox"><label for="chk2">Opt in to recieve Newsletter 2</label> <input id="chk2" name="chk2" type="checkbox"><span></span></li>
-					<li class="checkbox"><label for="chk3">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> <input id="chk3" name="chk3" type="checkbox" [(ngModel)]="user.agreed" required><span></span></li>
+					
+					<li class="checkbox">
+						<label for="chk1">Opt in to recieve Newsletter 1</label>
+						<input id="chk1" name="chk1" type="checkbox">
+						<span></span>
+					</li>
+					<li class="checkbox">
+						<label for="chk" [class.error]="chk.touched && !chk.valid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum delectus, mollitia beatae ullam officia nesciunt eum.</label>
+						<div class="error-message">This is a required field</div>
+						<input id="chk" name="chk" type="checkbox" [(ngModel)]="user.chk" required my-checkbox-validator ngControl="chk" #chk="ngForm" [class.error]="chk.touched && !chk.valid">
+						<span></span>
+					</li>
+					<li class="checkbox">
+						<label for="chk2">Opt in to recieve Newsletter 2</label> 
+						<input id="chk2" name="chk2" type="checkbox"><span></span>
+					</li>
+					<li class="checkbox">
+						<label for="chk3" [class.error]="chk3.touched && !chk3.valid">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> 
+						<div class="error-message">This is a required field</div>
+						<input id="chk3" name="chk3" type="checkbox" [(ngModel)]="user.agreed" required my-checkbox-validator ngControl="chk3" #chk3="ngForm" [class.error]="chk3.touched && !chk3.valid">
+						<span></span>
+					</li>
 				</ul>
 			</div>
 		</div>

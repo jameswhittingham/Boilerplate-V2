@@ -1,8 +1,8 @@
 import {Component, Input, ChangeDetectionStrategy, Directive} from '@angular/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from '@angular/common';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES} from '@angular/common';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
-import {EmailValidator} from './email.validator';
+import {EmailValidator, CheckboxValidator} from './form.validators';
 
 import {User} from './user';
 
@@ -10,7 +10,7 @@ import {User} from './user';
   selector: 'as-form',
   templateUrl: 'app/form/form.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES, EmailValidator]
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES, EmailValidator, CheckboxValidator]
 })
 export class FormComponent {
 	states = ['ACT','NSW','NT','QLD','SA','VIC','WA'];

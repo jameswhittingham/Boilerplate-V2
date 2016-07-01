@@ -27,6 +27,13 @@
 .vertical-center {
 	@media(min-width: $screen-sm) {
 		align-items: center;
-		display: flex;
+    display: flex;
+	}
+}
+
+.vertical-center-middle {
+	@media(min-width: $screen-sm) {
+    display: flex;
+    flex-direction: column;
 	}
 }

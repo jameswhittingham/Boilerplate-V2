@@ -525,9 +525,22 @@
 				<div class="col-xs-12 col-md-6 style-sample">
 					<label class="style-label">Checkbox list</label>
 					<ul class="list-checkboxes">
-						<li class="checkbox"><label for="chk1">Checkbox 1</label> <input id="chk1" name="chk1" type="checkbox"><span></span></li>
-						<li class="checkbox"><label for="chk2">Checkbox 2</label> <input id="chk2" name="chk2" type="checkbox"><span></span></li>
-						<li class="checkbox"><label for="chk3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt consequatur ipsa ab, tempora minima enim vel debitis quas, officiis nesciunt rem adipisci eligendi non, eos neque similique reprehenderit ex atque.</label> <input id="chk3" name="chk3" type="checkbox" class="error"><span></span></li>
+						<li class="checkbox">
+							<label for="chk1">Checkbox 1</label> 
+							<input id="chk1" name="chk1" type="checkbox">
+							<span></span>
+						</li>
+						<li class="checkbox">
+							<label for="chk2">Checkbox 2</label> 
+							<input id="chk2" name="chk2" type="checkbox">
+							<span></span>
+						</li>
+						<li class="checkbox">
+							<label for="chk3" class="error">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt consequatur ipsa ab, tempora minima enim vel debitis quas, officiis nesciunt rem adipisci eligendi non, eos neque similique reprehenderit ex atque.</label>
+							<div class="error-message">This is a required field</div>
+							<input id="chk3" name="chk3" type="checkbox" class="error">
+							<span></span>
+						</li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
@@ -548,9 +561,22 @@
 				<div class="col-xs-12 col-md-6 style-sample">
 					<label class="style-label">Radio list</label>
 					<ul class="list-radios">
-						<li class="radio"><label for="radio01">Radio Button 1</label><input id="radio01" name="radio" type="radio"><span></span></li>
-						<li class="radio"><label for="radio02">Radio Button 2</label><input id="radio02" name="radio" type="radio"><span></span></li>
-						<li class="radio"><label for="radio03">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt consequatur ipsa ab, tempora minima enim vel debitis quas, officiis nesciunt rem adipisci eligendi non, eos neque similique reprehenderit ex atque.</label><input id="radio03" name="radio" type="radio" class="error"><span></span></li>
+						<li class="radio">
+							<label for="radio01">Radio Button 1</label>
+							<input id="radio01" name="radio" type="radio">
+							<span></span>
+						</li>
+						<li class="radio">
+							<label for="radio02">Radio Button 2</label>
+							<input id="radio02" name="radio" type="radio">
+							<span></span>
+						</li>
+						<li class="radio">
+							<label for="radio03" class="error">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt consequatur ipsa ab, tempora minima enim vel debitis quas, officiis nesciunt rem adipisci eligendi non, eos neque similique reprehenderit ex atque.</label>
+							<div class="error-message">This is a required field</div>
+							<input id="radio03" name="radio" type="radio" class="error">
+							<span></span>
+						</li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-6 style-vars">
@@ -582,12 +608,12 @@
 						</div>
 
 						<div class="row vertical-center">
-							<div class="col-sm-4 col-md-3 vertical-center">
-								<label for="txterror">Label for textbox with error*</label>
+							<div class="col-sm-4 col-md-3 vertical-center-middle">
+								<label for="txterror" class="error">Label with error*</label>
+								<span class="error-message">An error message</span>
 							</div>
 							<div class="col-sm-8 col-md-9">
 								<input id="txterror" type="text" placeholder="Textbox with error" class="error"/>
-								<span class="error-message">This is an error message</span>
 							</div>
 						</div>
 
@@ -657,8 +683,9 @@
 					</div>
 
 					<div class="row vertical-center">
-						<div class="col-sm-4 col-md-3 vertical-center">
-							<label for="ddl">Label for dropdown with error</label>
+						<div class="col-sm-4 col-md-3 vertical-center-middle">
+							<label for="ddl" class="error">Dropdown error</label>
+							<span class="error-message">An error message</span>
 						</div>
 						<div class="col-sm-8 col-md-9">
 							<select id="ddl" class="error">
@@ -666,7 +693,6 @@
 								<option>Option 2</option>
 								<option>Option 3</option>
 							</select>
-							<span class="error-message">This is an error message</span>
 						</div>
 					</div>
 

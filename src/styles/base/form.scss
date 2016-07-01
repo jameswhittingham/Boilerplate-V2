@@ -19,13 +19,11 @@ select {
   -moz-appearance:    none;
   appearance:         none;
 
+  @include transition(all 0.3s);
+
   &.error {
   	border: solid 1px red;
-  	margin-bottom: 5;
-
-  	&~.error-message {
-			display: block;
-  	}
+  	color: red;
   }
 }
 
@@ -38,20 +36,47 @@ select {
 }
 
 label {
+	display: block;
+	float: left;
 	font-weight: normal;
-	
-	@media(min-width: $screen-sm) {
+	margin-bottom: 5px;
+
+	@media(min-width: $screen-xs) {
+		float: none;
 		margin-bottom: 15px;
+	}
+
+	&.error {
+		margin-bottom: 0;
 	}
 }
 
 .error-message {
 	color: red;
-	display: none;
+	display: block;
 	float: right;
-	margin-bottom: 10px;
+	max-height: 0px;
 
 	@include font-size(1.2);
+	@include opacity(0);
+	@include transition(all 0.3s);
+
+	@media(min-width: $screen-xs) {
+		float: left;
+	}
+}
+
+.error {
+	&~.error-message {
+		margin-bottom: 5px;
+		max-height: 100px;
+
+		@include opacity(1);
+
+		@media(min-width: $screen-md) {
+			margin-bottom: 15px;
+		}
+	}
 }
 
 .checkbox,
@@ -63,6 +88,7 @@ label {
 
 	label {
 		display: inline-block !important;
+		float: left;
 		padding-left: 40px;
 		position: relative;
 		z-index: 1;
@@ -102,6 +128,11 @@ label {
 
 			@include transition(all 0.1s);
 		}
+	}
+
+	.error-message {
+		padding-left: 40px;
+		width: 100%;
 	}
 }
 
