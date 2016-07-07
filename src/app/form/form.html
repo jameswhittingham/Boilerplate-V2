@@ -7,7 +7,7 @@
 
 
 <main class="form-example">
-	<form novalidate (ngSubmit)="onSubmit()" #thisForm="ngForm">
+	<form novalidate (ngSubmit)="onSubmit(thisForm.valid)" #thisForm="ngForm">
 		<div class="row">
 			<div class="col-md-6">
 				
@@ -39,29 +39,39 @@
 
 		<div class="row">
 			<div class="col-md-6">
-
-				<div class="row vertical-center">
-					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="email" [class.error]="!email.valid && (email.touched || submitted)">E-mail*</label>
-						<span class="error-message">This is a required field</span>
-					</div>
-					<div class="col-sm-8 col-md-9">
-						<input type="email" name="email" [(ngModel)]="user.email" email-validator ngControl="email" #email="ngForm" [class.error]="!email.valid && (email.touched || submitted)"/>
-					</div>
-				</div>
+		
+				<extended-input [labelText]="'E-mail'" [labelFor]="'email'" [isError]="!email.valid || someFormHandle.hasError('mismatchedStrings')">
+					<input type="email" id="email" name="email" [ngFormControl]="email" [ngModel]="user.email" [class.error]="!email.valid && (email.touched || submitted)">
+					<input-errors>
+						<input-error class="help-block" *ngIf="email.hasError('required')" [class.error]="email.hasError('required') && (email.touched || submitted)">
+							This is a required field
+						</input-error>
+						<input-error class="help-block" *ngIf="email.hasError('emailFormat')" [class.error]="email.hasError('emailFormat') && (email.touched || submitted)">
+							This is not a valid email address
+						</input-error>
+						<input-error class="help-block" *ngIf="someFormHandle.hasError('mismatchedStrings')" [class.error]="someFormHandle.hasError('mismatchedStrings') && (email.touched || submitted)"> 
+							The fields dont match
+						</input-error>
+					</input-errors>
+				</extended-input>
 
 			</div>
 			<div class="col-md-6">
 
-				<div class="row vertical-center">
-					<div class="col-sm-4 col-md-3 vertical-center-middle">
-						<label for="confirmEmail" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)">Confirm E-mail*</label>
-						<span class="error-message">This is a required field</span>
-					</div>
-					<div class="col-sm-8 col-md-9">
-						<input type="email" name="confirmEmail" [(ngModel)]="user.confirmEmail" email-validator match-validator item="{{user.email}}" ngControl="confirmEmail" #confirmEmail="ngForm" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)"/>
-					</div>
-				</div>
+				<extended-input [labelText]="'Confirm E-mail'" [labelFor]="'confirmEmail'" [isError]="!confirmEmail.valid || someFormHandle.hasError('mismatchedStrings')">
+					<input type="email" id="confirmEmail" name="confirmEmail" [ngFormControl]="confirmEmail" [ngModel]="user.confirmEmail" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)">
+					<input-errors>
+						<input-error class="help-block" *ngIf="confirmEmail.hasError('required')" [class.error]="confirmEmail.hasError('required') && (confirmEmail.touched || submitted)">
+							This is a required field
+						</input-error>
+						<input-error class="help-block" *ngIf="confirmEmail.hasError('emailFormat')" [class.error]="confirmEmail.hasError('emailFormat') && (confirmEmail.touched || submitted)">
+							This is not a valid email address
+						</input-error>
+						<input-error class="help-block" *ngIf="someFormHandle.hasError('mismatchedStrings')" [class.error]="someFormHandle.hasError('mismatchedStrings') && (confirmEmail.touched || submitted)"> 
+							The fields dont match
+						</input-error>
+					</input-errors>
+				</extended-input>
 
 			</div>
 		</div>

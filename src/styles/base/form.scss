@@ -57,6 +57,7 @@ label {
 	color: red;
 	display: block;
 	float: right;
+	line-height: 1.2;
 	max-height: 0px;
 
 	@include font-size(1.2);
@@ -69,6 +70,7 @@ label {
 }
 
 .error {
+	.error-message,
 	&~.error-message {
 		margin-bottom: 5px;
 		max-height: 100px;
@@ -77,6 +79,20 @@ label {
 
 		@media(min-width: $screen-md) {
 			margin-bottom: 15px;
+		}
+	}
+}
+
+input-errors {
+	.error {
+		.error-message {
+			margin-bottom: 5px; 
+		}
+
+		&:last-child {
+			.error-message {
+				margin-bottom: 10px;
+			}
 		}
 	}
 }
