@@ -55,6 +55,13 @@ module.exports = function () {
 	}
 
 	var config = {
+		ENV: 'development',
+		MONGO_URI : {
+	    DEVELOPMENT : "mongodb://localhost:27017/vulgar-dev",
+	    PRODUCTION : "mongodb://localhost:27017/vulgar-prod",
+	    TEST : "mongodb://localhost:27017/vulgar-test"
+	  },
+  	"SESSION_SECRET" : "355FC4FE9348639B4E4FED1B8E93C",
 		app: app,
 		src: src,
 		tmp: tmp,
