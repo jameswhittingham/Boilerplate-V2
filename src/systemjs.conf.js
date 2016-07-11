@@ -18,7 +18,8 @@
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
     	'app': {
-    		defaultExtension: 'js'
+    		defaultExtension: 'js',
+        format: 'register'
     	},
     	'test': {
     		defaultExtension: 'js'
@@ -27,7 +28,7 @@
     		defaultExtension: 'js'
     	},
     	"node_modules/ng2-bootstrap": {
-    		"defaultExtension": "js"
+    		defaultExtension: "js"
     	}
     };
 
@@ -47,6 +48,8 @@
     var packageNames = [
         // App barrels
         'app/shared',
+        'tmp/app',
+        'tmp/app/shared',
 
         // 3rd party barrels
         '@angular/router',
@@ -73,8 +76,7 @@
     });
 
     ngPackageNames.forEach(function(pkgName) {
-    	var main = global.ENV === 'testing' ? 'index.js' :
-    	'bundles/' + pkgName + '.umd.js';
+    	var main = global.ENV === 'testing' ? 'index.js' : 'bundles/' + pkgName + '.umd.js';
 
     	packages['@angular/'+pkgName] = { main: main, defaultExtension: 'js' };
     });
