@@ -5,6 +5,8 @@ import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {TodoFactory} from './todos.service';
 
+import 'rxjs/add/operator/map';
+
 @Component({
 	selector: 'as-todo',
 	templateUrl: 'app/todo/todo.html',
@@ -19,24 +21,27 @@ export class TodoComponent {
   constructor(private _todoFactory: TodoFactory) {
     this.todos = [];
 
-    //_todoFactory.getAll().then((data) =>{
-    //	debugger
-       //this.todos = data;
-    //});
-  }
+		this._todoFactory.getAll().subscribe(
+	    data => { 
+	    	this.todos = data
+	    }
+	  );
+	}
 
-  /*addTodo($event, todoText) {
+  addTodo($event, todoText) {
     if($event.which === 13) {
       var _todo = {
         text : todoText.value,
         isCompleted : false
       };
 
-      TodoFactory.save(_todo).then((data)=>{
-        // keep things in sync
-        this.todos.push(data);
-        todoText.value = '';
-      })
+      this._todoFactory.save(_todo).subscribe(
+	      data => {
+	        // keep things in sync
+	        this.todos.push(data);
+	        todoText.value = '';
+      	}
+      )
     }
   }
 
@@ -49,11 +54,13 @@ export class TodoComponent {
         isCompleted : todo.isCompleted
       };
      
-      TodoFactory.update(_todo).then((data)=>{
-         // console.log(data); -> {ok: true, n: 1, updatedExisting: true}
-         // wait for the response before resetting the state 
-         this.setEditState(todo, false);
-      });
+      this._todoFactory.update(_todo).subscribe(
+	      data => {
+	        // console.log(data); -> {ok: true, n: 1, updatedExisting: true}
+	        // wait for the response before resetting the state 
+	        this.setEditState(todo, false);
+      	}
+      );
   	}
   }
 
@@ -64,7 +71,8 @@ export class TodoComponent {
         isCompleted : !todo.isCompleted
       };
 
-      TodoFactory.update(_todo).then((data)=>{
+      this._todoFactory.update(_todo).subscribe(
+	      data => {
          // console.log(data); -> {ok: true, n: 1, updatedExisting: true}
          // wait for the response before updating the UI
          todo.isCompleted = !todo.isCompleted; 
@@ -75,7 +83,8 @@ export class TodoComponent {
   deleteTodo(todo){
     var todos = this.todos;
 
-  	TodoFactory.delete(todo._id).then((data)=>{
+  	this._todoFactory.delete(todo._id).subscribe(
+	      data => {
          if(data.n == 1){
           // save a n/w call by updating the local array
           // instead of making a GET call again to refresh the data 
@@ -89,12 +98,12 @@ export class TodoComponent {
       });
   }
 
-  setEditState(todo, state){
+  /**/setEditState(todo, state){
   	if(state){
   	  	todo.isEditMode = state;
   	}else{
   		// don't store unwanted presentation logic in DB :/
   		delete todo.isEditMode;
   	}
-  }*/
+  }
 }
