@@ -5,8 +5,6 @@ import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {TodoFactory} from './todos.service';
 
-import 'rxjs/add/operator/map';
-
 @Component({
 	selector: 'as-todo',
 	templateUrl: 'app/todo/todo.html',
