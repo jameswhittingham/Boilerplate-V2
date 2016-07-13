@@ -6,9 +6,7 @@ import {EmailValidator, CheckboxValidator, MatchValidator, CustomValidators} fro
 
 import {ExtendedInput} from "./extended-input.component"
 import {InputError} from "./input-error.component";
-
 import {User} from './user';
-
 import {SignupFactory} from './signup.service';
 import 'rxjs/add/operator/map';
 
