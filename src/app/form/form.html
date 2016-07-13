@@ -7,7 +7,7 @@
 
 
 <main class="form-example">
-	<form novalidate (ngSubmit)="onSubmit(thisForm.valid)" #thisForm="ngForm">
+	<form novalidate (ngSubmit)="onSubmit(thisForm.valid, user)" #thisForm="ngForm">
 		<div class="row">
 			<div class="col-md-6">
 				
@@ -17,7 +17,7 @@
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="firstName" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && (firstName.touched || submitted)" />
+						<input type="text" id="firstName" name="firstName" placeholder="Enter first name" required [(ngModel)]="user.firstName" #firstName="ngModel" [class.error]="!firstName.valid && (firstName.touched || submitted)" />
 					</div>
 				</div>
 
@@ -30,7 +30,7 @@
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="lastName" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && (lastName.touched || submitted)"/>
+						<input type="text" id="lastName" name="lastName"  placeholder="Enter last name" required [(ngModel)]="user.lastName" #lastName="ngModel" [class.error]="!lastName.valid && (lastName.touched || submitted)"/>
 					</div>
 				</div>
 				
@@ -41,7 +41,7 @@
 			<div class="col-md-6">
 		
 				<extended-input [labelText]="'E-mail'" [labelFor]="'email'" [isError]="!email.valid || someFormHandle.hasError('mismatchedStrings')">
-					<input type="email" id="email" name="email" [ngFormControl]="email" [ngModel]="user.email" [class.error]="!email.valid && (email.touched || submitted)">
+					<input type="email" id="email" name="email"  placeholder="Enter email address" [ngFormControl]="email" [ngModel]="user.email" [class.error]="!email.valid && (email.touched || submitted)">
 					<input-errors>
 						<input-error class="help-block" *ngIf="email.hasError('required')" [class.error]="email.hasError('required') && (email.touched || submitted)">
 							This is a required field
@@ -59,7 +59,7 @@
 			<div class="col-md-6">
 
 				<extended-input [labelText]="'Confirm E-mail'" [labelFor]="'confirmEmail'" [isError]="!confirmEmail.valid || someFormHandle.hasError('mismatchedStrings')">
-					<input type="email" id="confirmEmail" name="confirmEmail" [ngFormControl]="confirmEmail" [ngModel]="user.confirmEmail" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)">
+					<input type="email" id="confirmEmail" name="confirmEmail" placeholder="Re-enter email address" [ngFormControl]="confirmEmail" [ngModel]="user.confirmEmail" [class.error]="!confirmEmail.valid && (confirmEmail.touched || submitted)">
 					<input-errors>
 						<input-error class="help-block" *ngIf="confirmEmail.hasError('required')" [class.error]="confirmEmail.hasError('required') && (confirmEmail.touched || submitted)">
 							This is a required field
@@ -85,7 +85,7 @@
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="address1" name="address1" required [(ngModel)]="user.address1" #address1="ngModel" [class.error]="!address1.valid && (address1.touched || submitted)"/>
+						<input type="text" id="address1" name="address1" placeholder="Enter address 1" required [(ngModel)]="user.address1" #address1="ngModel" [class.error]="!address1.valid && (address1.touched || submitted)"/>
 					</div>
 				</div>
 				
@@ -98,7 +98,7 @@
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="text" id="address2" name="address2" [(ngModel)]="user.address2"/>
+						<input type="text" id="address2" name="address2"  placeholder="Enter address 2" [(ngModel)]="user.address2"/>
 					</div>
 				</div>
 
@@ -114,7 +114,7 @@
 						<span class="error-message">This is a required field</span>
 					</div>
 					<div class="col-sm-8 col-md-9">
-						<input type="number" id="postcode" name="postcode" required [(ngModel)]="user.postcode" #postcode="ngModel" [class.error]="!postcode.valid && (postcode.touched || submitted)"/>
+						<input type="number" id="postcode" name="postcode" placeholder="Enter postcode" required [(ngModel)]="user.postcode" #postcode="ngModel" [class.error]="!postcode.valid && (postcode.touched || submitted)"/>
 					</div>
 				</div>
 
@@ -143,7 +143,7 @@
 					
 					<li class="checkbox">
 						<label for="chk1">Opt in to recieve Newsletter 1</label>
-						<input id="chk1" name="chk1" type="checkbox">
+						<input id="chk1" name="chk1" type="checkbox" [(ngModel)]="user.chk1">
 						<span></span>
 					</li>
 					<li class="checkbox">
@@ -154,7 +154,7 @@
 					</li>
 					<li class="checkbox">
 						<label for="chk2">Opt in to recieve Newsletter 2</label> 
-						<input id="chk2" name="chk2" type="checkbox"><span></span>
+						<input id="chk2" name="chk2" type="checkbox" [(ngModel)]="user.chk2"><span></span>
 					</li>
 					<li class="checkbox">
 						<label for="chk3" [class.error]="!chk3.valid && (chk3.touched || submitted)">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> 

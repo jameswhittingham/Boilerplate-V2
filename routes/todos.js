@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
 var db = mongojs('mongodb://localhost:27017/todo10', ['todos']);
+
 /* GET All Todos */
 router.get('/todos', function(req, res, next) {
     db.todos.find(function(err, todos) {

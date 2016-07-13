@@ -20,6 +20,7 @@ gulp.task('serve-express', ['sass', 'tsc-app', 'watch-ts', 'watch-sass'], functi
 	var bodyParser = require('body-parser');
 	var index = require('./routes/index');
 	var todos = require('./routes/todos');
+	var signups = require('./routes/signup');
 	var fallback = require('express-history-api-fallback');
 	var app = express();
 
@@ -39,6 +40,7 @@ gulp.task('serve-express', ['sass', 'tsc-app', 'watch-ts', 'watch-sass'], functi
 	app.use(express.static(root));
 	app.use('/', index);
 	app.use('/api/v1/', todos);
+	app.use('/api/v1/', signups);
 	app.use(fallback('index.html', { root: root }));
 	
 	// catch 404 and forward to error handler

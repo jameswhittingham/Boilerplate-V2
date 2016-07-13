@@ -4,7 +4,6 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {TodoFactory} from './todos.service';
-
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -37,7 +36,6 @@ export class TodoComponent {
 
       this._todoFactory.save(_todo).subscribe(
 	      data => {
-	        // keep things in sync
 	        this.todos.push(data);
 	        todoText.value = '';
       	}
@@ -56,8 +54,6 @@ export class TodoComponent {
      
       this._todoFactory.update(_todo).subscribe(
 	      data => {
-	        // console.log(data); -> {ok: true, n: 1, updatedExisting: true}
-	        // wait for the response before resetting the state 
 	        this.setEditState(todo, false);
       	}
       );
@@ -73,8 +69,6 @@ export class TodoComponent {
 
       this._todoFactory.update(_todo).subscribe(
 	      data => {
-         // console.log(data); -> {ok: true, n: 1, updatedExisting: true}
-         // wait for the response before updating the UI
          todo.isCompleted = !todo.isCompleted; 
       });
   	
@@ -86,8 +80,6 @@ export class TodoComponent {
   	this._todoFactory.delete(todo._id).subscribe(
 	      data => {
          if(data.n == 1){
-          // save a n/w call by updating the local array
-          // instead of making a GET call again to refresh the data 
           for (var i = 0; i < todos.length; i++) {
             if(todos[i]._id == todo._id){
               todos.splice(i, 1);
@@ -98,11 +90,10 @@ export class TodoComponent {
       });
   }
 
-  /**/setEditState(todo, state){
+  setEditState(todo, state){
   	if(state){
   	  	todo.isEditMode = state;
-  	}else{
-  		// don't store unwanted presentation logic in DB :/
+  	} else {
   		delete todo.isEditMode;
   	}
   }
