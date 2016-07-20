@@ -1,0 +1,200 @@
+<!-- Bootstrap Jumbotron -->
+<div class="jumbotron">
+	<h1>Form New Example</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eveniet, illo soluta, deserunt maiores ipsum. Quae nisi neque temporibus beatae nesciunt mollitia expedita assumenda. Nobis vitae rem, excepturi explicabo.</p>
+	<br/>
+</div>
+
+
+<main class="form-example" [class.submitted]="formComplete">
+	
+	<form novalidate [formGroup]="registrationForm" (ngSubmit)="onSubmit(user)">
+
+		<div class="row">
+			<div class="col-md-6">
+				
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="firstName" [class.error]="!registrationForm.controls.firstName.valid && (registrationForm.controls.firstName.touched || submitted)">First Name*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="firstName" name="firstName" placeholder="Enter first name" required [(ngModel)]="user.firstName" formControlName="firstName" [class.error]="!registrationForm.controls.firstName.valid && (registrationForm.controls.firstName.touched || submitted)" />
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-6">
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="lastName" [class.error]="!registrationForm.controls.lastName.valid && (registrationForm.controls.lastName.touched || submitted)">Last Name*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="lastName" name="lastName" placeholder="Enter last name" required [(ngModel)]="user.lastName" formControlName="lastName" [class.error]="!registrationForm.controls.lastName.valid && (registrationForm.controls.lastName.touched || submitted)"/>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="email" class="req" [class.error]="(registrationForm.controls.email.touched || submitted) && (!registrationForm.controls.email.valid || registrationForm.hasError('mismatchedStrings'))">E-mail</label>
+
+
+						<input-errors *ngIf="registrationForm.controls.email.touched && !registrationForm.controls.email.valid">
+							<input-error class="help-block" [class.error]="registrationForm.controls.email.errors.required">
+								<span class="error-message" *ngIf="registrationForm.controls.email.errors.required">This is a required field</span>
+							</input-error>
+							<input-error class="help-block" [class.error]="registrationForm.controls.email.errors.incorrectMailFormat">
+								<span class="error-message" *ngIf="registrationForm.controls.email.errors.incorrectMailFormat">This is not a valid email address</span>
+							</input-error>
+						</input-errors>
+						
+						<input-errors *ngIf="registrationForm.controls.email.touched && registrationForm.hasError('mismatchedStrings')">
+							<input-error class="help-block" [class.error]="registrationForm.hasError('mismatchedStrings')">
+								<span class="error-message" *ngIf="registrationForm.hasError('mismatchedStrings')">The fields dont match</span>
+							</input-error>
+						</input-errors>
+
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="email" name="email" placeholder="Enter email address" [(ngModel)]="user.email" formControlName="email" />
+					</div>
+				</div>
+		
+			</div>
+			<div class="col-md-6">
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="confirmEmail" class="req" [class.error]="(registrationForm.controls.confirmEmail.touched || submitted) && (!registrationForm.controls.confirmEmail.valid || registrationForm.hasError('mismatchedStrings'))">Confirm E-mail</label>
+
+						<input-errors *ngIf="registrationForm.controls.confirmEmail.touched && !registrationForm.controls.confirmEmail.valid">
+							<input-error class="help-block" [class.error]="registrationForm.controls.confirmEmail.errors.required">
+								<span class="error-message" *ngIf="registrationForm.controls.confirmEmail.errors.required">This is a required field</span>
+							</input-error>
+							<input-error class="help-block" [class.error]="registrationForm.controls.confirmEmail.errors.incorrectMailFormat">
+								<span class="error-message" *ngIf="registrationForm.controls.confirmEmail.errors.incorrectMailFormat">This is not a valid email address</span>
+							</input-error>
+						</input-errors>
+						<input-errors *ngIf="registrationForm.controls.confirmEmail.touched && registrationForm.hasError('mismatchedStrings')">
+							<input-error class="help-block" [class.error]="registrationForm.hasError('mismatchedStrings')">
+								<span class="error-message" *ngIf="registrationForm.hasError('mismatchedStrings')">The fields dont match</span>
+							</input-error>
+						</input-errors>
+
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="confirmEmail" name="confirmEmail" placeholder="Re-enter email address" [(ngModel)]="user.confirmEmail" formControlName="confirmEmail" />
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="address1" [class.error]="!registrationForm.controls.address1.valid && (registrationForm.controls.address1.touched || submitted)">Address 1*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="address1" name="address1" placeholder="Enter address 1" required [(ngModel)]="user.address1" formControlName="address1" [class.error]="!registrationForm.controls.address1.valid && (registrationForm.controls.address1.touched || submitted)"/>
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-md-6">
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="address2">Address 2</label>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="text" id="address2" name="address2"  placeholder="Enter address 2" [(ngModel)]="user.address2" formControlName="address2"/>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="postcode" [class.error]="!registrationForm.controls.postcode.valid && (registrationForm.controls.postcode.touched || submitted)">Postcode*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						<input type="number" id="postcode" name="postcode" placeholder="Enter postcode" required [(ngModel)]="user.postcode" formControlName="postcode" [class.error]="!registrationForm.controls.postcode.valid && (registrationForm.controls.postcode.touched || submitted)"/>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-6">
+
+				<div class="row vertical-center">
+					<div class="col-sm-4 col-md-3 vertical-center-middle">
+						<label for="state" [class.error]="!registrationForm.controls.state.valid && (registrationForm.controls.state.touched || submitted)">State*</label>
+						<span class="error-message">This is a required field</span>
+					</div>
+					<div class="col-sm-8 col-md-9">
+						
+						<select name="state" id="state" name="state" required [(ngModel)]="user.state" formControlName="state" [class.error]="!registrationForm.controls.state.valid && (registrationForm.controls.state.touched || submitted)">
+							<option value="">State</option>
+							<option *ngFor="let state of states" [value]="state">{{ state }}</option>
+						</select>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="list-checkboxes">
+					
+					<li class="checkbox">
+						<label for="optIn">Opt in to recieve Newsletter 1</label>
+						<input id="optIn" name="optIn" type="checkbox" [(ngModel)]="user.optIn" formControlName="optIn">
+						<span></span>
+					</li>
+					<li class="checkbox">
+						<label for="optIn2">Opt in to recieve Newsletter 2</label> 
+						<input id="optIn2" name="optIn2" type="checkbox" [(ngModel)]="user.optIn2" formControlName="optIn2"><span></span>
+					</li>
+					<li class="checkbox">
+						<label for="terms" [class.error]="!registrationForm.controls.terms.valid && (registrationForm.controls.terms.touched || submitted)">I have read the <a href="#" data-toggle="modal" data-target="#footerModal">Terms and Conditions</a></label> 
+						<div class="error-message">This is a required field</div>
+						<input id="terms" name="terms" type="checkbox" required [(ngModel)]="user.terms" formControlName="terms" [class.error]="!registrationForm.controls.terms.valid && (registrationForm.controls.terms.touched || submitted)">
+						<span></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6">
+				<input type="submit" class="btn btn-primary pull-right" [disabled]="!registrationForm.valid"/>
+			</div>
+		</div>
+
+
+	</form>
+
+	<div class="submission-confirmation">
+		<h2>YAY!<br/>you submitted the form</h2>
+		<button class="btn btn-primary" (click)="formComplete = false">Return to form</button>
+	</div>
+
+</main>

@@ -29,14 +29,6 @@ export class FormComponent implements OnInit {
 	user = new User(null, "","","","","",null,"",false);
 
 	submitted = false;
-	emailRegEx = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
-
-
-	divisibleByTen(control:Control) {
-    return parseInt(control.value) % 10 == 0 ? null : {
-      divisibleByTen: true
-    }
-  }
 
 	ngOnInit():void {
 		this.email = new Control('email', Validators.compose([Validators.required, CustomValidators.emailFormat]));
