@@ -4866,20 +4866,22 @@ label {
       float: left; } }
 
 .error .error-message,
-.error ~ .error-message {
+.error ~ .error-message,
+.error ~ .error-list .error-message {
   margin-bottom: 5px;
   max-height: 100px;
   opacity: 1;
   filter: alpha(opacity=100); }
   @media (min-width: 992px) {
     .error .error-message,
-    .error ~ .error-message {
+    .error ~ .error-message,
+    .error ~ .error-list .error-message {
       margin-bottom: 15px; } }
 
 input-errors .error .error-message {
   margin-bottom: 5px; }
 
-input-errors .error:last-child .error-message {
+input-errors:last-child .error:last-child .error-message {
   margin-bottom: 10px; }
 
 .checkbox,
@@ -4958,6 +4960,32 @@ input-errors .error:last-child .error-message {
   left: 3px;
   top: 3px;
   width: 10px; }
+
+.form-example {
+  position: relative; }
+  .form-example form {
+    position: relative;
+    z-index: 2;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+  .form-example .submission-confirmation {
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+  .form-example.submitted form {
+    opacity: 0;
+    z-index: 1; }
+  .form-example.submitted .submission-confirmation {
+    opacity: 1;
+    z-index: 2; }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */

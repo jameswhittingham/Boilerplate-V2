@@ -71,7 +71,8 @@ label {
 
 .error {
 	.error-message,
-	&~.error-message {
+	&~.error-message,
+	&~.error-list .error-message {
 		margin-bottom: 5px;
 		max-height: 100px;
 
@@ -91,7 +92,17 @@ input-errors {
 
 		&:last-child {
 			.error-message {
-				margin-bottom: 10px;
+				//margin-bottom: 10px;
+			}
+		}
+	}
+
+	&:last-child {
+		.error {
+			&:last-child {
+				.error-message {
+					margin-bottom: 10px;
+				}
 			}
 		}
 	}
@@ -196,6 +207,41 @@ input-errors {
 	    left: 3px;
 	    top: 3px;
 	    width: 10px;
+		}
+	}
+}
+
+.form-example {
+	position: relative;
+
+	form {
+		position: relative;
+		z-index: 2;
+
+		@include transition(all 0.3s);
+	}
+
+	.submission-confirmation {
+		left: 0px;
+		opacity: 0;
+		position: absolute;
+		text-align: center;
+		top: 0px;
+		width: 100%;
+		z-index: 1;
+
+		@include transition(all 0.3s);
+	}
+
+	&.submitted {
+		form {
+			opacity: 0;
+			z-index: 1;
+		}
+
+		.submission-confirmation {
+			opacity: 1;
+			z-index: 2;
 		}
 	}
 }

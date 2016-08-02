@@ -1,0 +1,62 @@
+<!-- Bootstrap Jumbotron -->
+<div class="jumbotron">
+	<h1>Todo</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eveniet, illo soluta, deserunt maiores ipsum. Quae nisi neque temporibus beatae nesciunt mollitia expedita assumenda. Nobis vitae rem, excepturi explicabo.</p>
+	<br/>
+</div>
+
+<main class="style-guide">
+	<div class="row">
+	  
+	  <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+			<div class="row vertical-center">
+				<div class="col-sm-2 col-md-1 vertical-center">
+					<label for="txt">Task</label>
+				</div>
+				<div class="col-sm-10 col-md-11">
+					<input id="txt" type="text" placeholder="Add a task then press Enter" autofocus #todotext (keyup)="addTodo($event, todotext)">
+				</div>
+			</div>
+	    
+	  </div>
+
+	  <div class="col-xs-12 col-md-8 col-md-offset-2 todos">
+	    <div class="alert alert-info text-center" [hidden]="todos.length > 0">
+	      <h3>No Todos yet!</h3>
+	    </div>
+	    
+	    <div *ngFor="let todo of todos" class="row todo" [class.strike]="todo.isCompleted">
+	    	<div class="col-xs-12">
+	    		<hr/>
+	    	</div>
+
+	    	<div class="col-xs-12 vertical-center">
+		      <div class="col-xs-12 col-md-8" [class.hidden]="todo.isEditMode">
+		      	<div class="checkbox">
+		      		<label for="chk1" (click)="updateStatus(todo)">{{todo.text}}</label> 
+							<input id="chk1" name="chk1" type="checkbox" [checked]="todo.isCompleted">
+							<span></span>
+						</div>
+		      </div>
+
+		      <div class="col-xs-12 col-md-8" [class.hidden]="!todo.isEditMode">
+		        <input type="text" [value]="todo.text" (keypress)="updateTodoText($event, todo);" style="margin-bottom: 0px;">
+		      </div>
+
+		      <div class="col-xs-12 col-md-4 text-right">
+		      	<button class="btn btn-warning" (click)="setEditState(todo, false)" [class.hidden]="!todo.isEditMode">Cancel</button>
+		        <button class="btn btn-info" [class.disabled]="todo.isCompleted" (click)="setEditState(todo, true)">Edit</button>
+		        <button class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
+		      </div>
+	    	</div>
+	
+	    </div>
+	  </div>
+
+	  <div class="col-xs-12 col-md-8 col-md-offset-2">
+  		<hr/>
+  	</div>
+
+	</div>
+</main>

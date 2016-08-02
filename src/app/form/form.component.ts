@@ -6,34 +6,29 @@ import {EmailValidator, CheckboxValidator, MatchValidator, CustomValidators} fro
 
 import {ExtendedInput} from "./extended-input.component"
 import {InputError} from "./input-error.component";
-
 import {User} from './user';
+import {SignupFactory} from './signup.service';
+import 'rxjs/add/operator/map';
 
 
 @Component({
   selector: 'as-form',
   templateUrl: 'app/form/form.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES, EmailValidator, CheckboxValidator, MatchValidator, ExtendedInput, InputError]
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, FORM_DIRECTIVES, EmailValidator, CheckboxValidator, MatchValidator, ExtendedInput, InputError],
+  providers: [SignupFactory]
 })
 export class FormComponent implements OnInit {
-	constructor(private formBuilder:FormBuilder) {}
+	constructor(private formBuilder:FormBuilder, private _signupFactory: SignupFactory) {}
 
 	someFormHandle:ControlGroup;
   email:AbstractControl;
   confirmEmail:AbstractControl;
 
 	states = ['ACT','NSW','NT','QLD','SA','VIC','WA'];
-	user = User;
+	user = new User(null, "","","","","",null,"",false);
+
 	submitted = false;
-	emailRegEx = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
-
-
-	divisibleByTen(control:Control) {
-    return parseInt(control.value) % 10 == 0 ? null : {
-      divisibleByTen: true
-    }
-  }
 
 	ngOnInit():void {
 		this.email = new Control('email', Validators.compose([Validators.required, CustomValidators.emailFormat]));
@@ -45,9 +40,20 @@ export class FormComponent implements OnInit {
 		}, { validator: CustomValidators.match('email', 'confirmEmail') })
   }
 
-	onSubmit(valid) {
+	onSubmit(valid, thisUser) {
 		if (!valid) { 
 			this.submitted = true;
+		} else {
+
+
+      this._signupFactory.save(thisUser).subscribe(
+	      data => {
+	      	debugger
+	        //this.todos.push(data);
+	        //todoText.value = '';
+      	}
+      )
+
 		}
 	}
 }
