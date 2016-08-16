@@ -67,23 +67,32 @@ module.exports = function () {
 		index: index,
 		favicons: favicons,
 		browserSync: {
-			port: 3000,
-			server: {
-				baseDir: './src/',
-				middleware: [historyApiFallback()],
-				routes: {
-					"/node_modules": "node_modules",
-					"/src": "src"
-				}
+			dev: {
+				port: 3000,
+				server: {
+					baseDir: './src/',
+					middleware: [historyApiFallback()],
+					routes: {
+						"/node_modules": "node_modules",
+						"/src": "src"
+					}
+				},
+				files: [
+					src + "index.html",
+					src + "systemjs.conf.js",
+					assetsPath.styles + "main.css",
+					tmpApp + "**/*.js",
+					app + "**/*.css",
+					app + "**/*.html"
+				]
 			},
-			files: [
-				src + "index.html",
-				src + "systemjs.conf.js",
-				assetsPath.styles + "main.css",
-				tmpApp + "**/*.js",
-				app + "**/*.css",
-				app + "**/*.html"
-			]
+			prod: {
+				port: 3001,
+				server: {
+					baseDir: './' + build.path,
+					middleware: [historyApiFallback()]
+				}
+			}
 		}
 	};
 

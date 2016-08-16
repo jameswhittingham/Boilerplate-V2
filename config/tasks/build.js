@@ -27,7 +27,7 @@ gulp.task('build-assets', function (done) {
 		gulp.src(config.src + '**/*.css', {
 			base: config.src
 		})
-		.pipe(cssnano())
+		//.pipe(cssnano())
 		.pipe(gulp.dest(config.build.path));
 
 		// Copy assets
